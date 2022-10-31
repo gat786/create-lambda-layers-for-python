@@ -41,7 +41,7 @@ def create_layer_with_pip(packages: List[PackageDetail]):
 
 def upload_layers_file_to_s3(file: str):
     s3 = boto3.client('s3')
-    with open(file=file, mode='r') as file_to_upload:
+    with open(file=file, mode='rb') as file_to_upload:
         response = s3.put_object(
             Body = file_to_upload,
             Bucket = bucket_name,
@@ -90,5 +90,5 @@ if __name__ == "__main__":
         PackageDetail("scipy","1.7.3")
     ]
 
-    create_layer_with_pip(packages=packages)
+    # create_layer_with_pip(packages=packages)
     upload_layers_file_to_s3("layers.zip")
