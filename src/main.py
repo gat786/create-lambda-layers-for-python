@@ -25,7 +25,7 @@ def create_layer_with_pip(packages: List[PackageDetail]):
     install all the dependencies using the pip cli
     in it and then create a layers.zip file depending on it
     """
-    layers_folder_path = "./layers"
+    layers_folder_path = "./layers/python"
     if not os.path.exists(layers_folder_path):
         os.makedirs(layers_folder_path)
     
@@ -36,7 +36,7 @@ def create_layer_with_pip(packages: List[PackageDetail]):
     shutil.make_archive(
         zip_file_name,
         "zip",
-        layers_folder_path
+        f"./{zip_file_name}"
     )
 
 def upload_layers_file_to_s3(file: str):
@@ -85,10 +85,8 @@ def create_layer(packages: List[PackageDetail]):
 
 if __name__ == "__main__":
     packages = [
-        PackageDetail("requests", "2.28.1"),
-        PackageDetail("pandas", "1.3.5"),
-        PackageDetail("scipy","1.7.3")
+        PackageDetail("boto3", "1.26.2")
     ]
 
-    # create_layer_with_pip(packages=packages)
-    upload_layers_file_to_s3("layers.zip")
+    create_layer_with_pip(packages=packages)
+    # upload_layers_file_to_s3("layers.zip")

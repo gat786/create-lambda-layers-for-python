@@ -5,3 +5,5 @@ lib64/*
 include/
 layers/
 layers.zip
+
+**/__pycache__**
