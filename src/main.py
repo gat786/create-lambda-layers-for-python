@@ -81,8 +81,9 @@ def create_layer(packages: List[PackageDetail]):
     
     
 
-def handler(event):
-    print(event)
+def handler(event,context):
+    print("event is ", event)
+    print("context is ", context)
 
 
 if __name__ == "__main__":
