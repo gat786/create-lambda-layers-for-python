@@ -40,6 +40,6 @@ jobs:
         
     - name: Update Lambda Deployment
       run: |
-        aws lambda update-function-code --function-name create-lambda-layers37 --zip-file functions.zip
+        aws lambda update-function-code --function-name create-lambda-layers37 --zip-file fileb://functions.zip
     
     
