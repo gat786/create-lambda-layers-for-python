@@ -81,7 +81,9 @@ def create_layer(packages: List[PackageDetail]):
     
     
 
-    
+def handler(event):
+    print(event)
+
 
 if __name__ == "__main__":
     packages = [
