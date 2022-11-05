@@ -31,6 +31,6 @@ jobs:
         
     - name: Create Function Zip file
       run: |
-        zip -r function.zip . -x README.md requirements.txt
+        zip -r function.zip . -x README.md requirements.txt .git/
     
     
